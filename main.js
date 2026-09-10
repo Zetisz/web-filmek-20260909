@@ -124,3 +124,18 @@ for (const film of filmek) {
     }
 }
 
+const add = document.getElementById("Add");
+add.addEventListener('click', function(){
+    const tr = document.createElement("tr");
+    const title = document.createElement("td");
+    const year = document.createElement("td");
+    const genre = document.createElement("td");
+    const rating = document.createElement("td");
+
+    const nev = document.getElementById("name")
+    title.innerText = nev;
+
+    tr.appendChild(title);
+    table.appendChild(tr);
+})
+
