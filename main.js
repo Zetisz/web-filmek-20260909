@@ -111,5 +111,11 @@ for (const film of filmek) {
     tr.appendChild(rating)
 
     table.appendChild(tr)
+
+    // low-rating
+
+    if (film.rating < 3) {
+        rating.classList.add("low-rating")
+    }
 }
 
