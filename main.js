@@ -117,25 +117,42 @@ for (const film of filmek) {
         rating.classList.add("low-rating");
     }
 
-    // stars
-
-    for (let i = 0; i < film.rating; i++){
-        rating.innerText += "⭐";
-    }
+    Stars(film.rating, rating)
 }
 
-const add = document.getElementById("Add");
-add.addEventListener('click', function(){
+const form = document.getElementById("form");
+form.addEventListener('submit', function(event){
+    event.preventDefault()
+
     const tr = document.createElement("tr");
     const title = document.createElement("td");
     const year = document.createElement("td");
     const genre = document.createElement("td");
     const rating = document.createElement("td");
 
-    const nev = document.getElementById("name")
-    title.innerText = nev;
+    title.innerText = document.getElementById("fname").value;
+    year.innerText = document.getElementById("year").value;
+    genre.innerText = document.getElementById("genre").value;
 
     tr.appendChild(title);
+    tr.appendChild(year);
+    tr.appendChild(genre);
+    tr.appendChild(rating);
+
     table.appendChild(tr);
+
+    let rated = document.getElementById("rating").value
+    if (rated < 1){
+      rated = 1;
+    }
+    else if (rated > 5){
+      rated = 5;
+    }
+    Stars(rated, rating)
 })
 
+function Stars(rating, label){
+  for (let i = 0; i < rating; i++){
+        label.innerText += "⭐";
+    }
+}
